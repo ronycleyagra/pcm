@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>Complete Example</title>
+        <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="./bootstrap/bootstrap.css">
+        <script src="./jquery/jquery.min.js"></script>
+        <script src="./jquery/jquery-1.12.4.js"></script>
+        <script src="./bootstrap/bootstrap.js"></script>
+        <script src="./Chart.min.js"></script>
+        
+        <script src="./bootstrap/bootbox.min.js"></script>
+        
+        <style>
+            .chart-container {
+                position: relative;
+                margin: auto;
+                height: 20vw;
+                width: 90vw;
+            }
+        </style>
+        <script>
+            function showinfo(){
+                bootbox.alert("<img src='./imagens/ifpb.png' alt='IFPB' class='img-thumbnail'> <h2>Campus Campina Grande</h2><br>\n\
+                Disciplina: Comunicações digitais - 2018.1<br>\n\
+                Alunos:<br>\n\
+                - Ronycley Gonçalves Agra<br>\n\
+                - Pedro Henrique Tomé do Nascimento<br>\n\
+                <b>Projeto sobre representação de sinais com PCM (Pulse Code Modulation)</b>", 
+                        function() {
+                            console.log("Alert Callback");
+                        });
+            }
+            
+            function enviar(seqbits) {
+                if($("#pcm").val() == "0"){
+                    bootbox.alert("Selecione uma codificação!", 
+                        function() {
+                            console.log("Alert Callback");
+                        });
+                }else if(seqbits.length < 16){
+                    bootbox.alert("A sequência deve ter exatament 16 bits!", 
+                        function() {
+                            console.log("Alert Callback");
+                        });
+                }else if($("#pcm").val() == "nrzl"){
+                    $("#chart-container").load("./chartbits.php?seqbits=" + seqbits);
+                }else{
+                    $("#chart-container").load("./chartbits2.php?seqbits=" + seqbits);
+                }
+            }
+            function showcreditos(){
+                bootbox.dialog({ message: '<div class="text-center"><i class="fa fa-spin fa-spinner"></i> Loading...</div>' });
+            }
+            
+            function tecla(){
+                evt = window.event;
+                var tecla = evt.keyCode;
+                //alert(tecla);
+                if(tecla != 48 && tecla != 49){ 
+                  //alert('Precione apenas teclas numéricas');
+                  evt.preventDefault();
+                }
+              }
+        </script>
+    </head>
+    <body style="margin: auto; width: 90%">
+        <center>
+            <table class="table" style="margin-botton: 40px;" >
+                <tr>
+                    <td width="20%">
+                        <img src="./imagens/ifpb.png" alt="ifpb" class="img-thumbnail">
+                    </td>
+                    <td width="60%">
+                        <center>
+                            <h1>COMUNICAÇÕES DIGITAIS</h1>
+                            <h3>PCM - REPRESENTAÇÃO DE SINAIS</h3>
+                        </center>
+                    </td>
+                    <td width="20%">
+                        <center>
+                            <a id="opener" onclick="showinfo();">
+                                <img src="./imagens/copy.png" alt="Sobre" class="img-thumbnail">
+                            </a>
+                        </center>
+                    </td>
+                </tr>
+            </table>
+            <table class="table" style="margin-botton: 20px;" >
+                <tr>
+                    <td width="40%">
+                        <select class="form-control form-control-lg" id="pcm">
+                            <option value="0">Selecione a codificação</option>
+                            <option value="nrzl">NRZ-L</option>
+                            <option value="biphasel">BI-&Phi;-L</option>
+                        </select>
+                    </td>
+                    <td width="40%">
+                        <input type="text" class="form-control" 
+                               name="bits" id="bits" style="font-size: 22px; text-align: center;" 
+                               maxlength ="16" onKeyPress = "tecla()">
+                    </td>
+                    <td width="20%">
+                        <button onclick="enviar(document.getElementById('bits').value)"
+                                class="btn btn-primary" style="font-size: 22px;">Gerar Gráfico</button>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    <div class="chart-container" id="chart-container"></div>
+</body>
+</html>
