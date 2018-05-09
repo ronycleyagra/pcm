@@ -8,4 +8,4 @@
 
 2. Pedro Henrique Tomé do Nascimento
 
-> Projeto sobre representação de sinais com PCM (Pulse Code Modulation)
+> **Projeto sobre representação de sinais com PCM (Pulse Code Modulation)**
