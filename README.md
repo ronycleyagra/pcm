@@ -4,8 +4,8 @@
 
 > Alunos:
 
-1. Ronycley Gonçalves Agra
+  1. Ronycley Gonçalves Agra
 
-2. Pedro Henrique Tomé do Nascimento
+  2. Pedro Henrique Tomé do Nascimento
 
 > **Projeto sobre representação de sinais com PCM (Pulse Code Modulation)**
