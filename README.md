@@ -8,4 +8,6 @@
 
   - Pedro Henrique Tomé do Nascimento
 
-> **Projeto sobre representação de sinais com PCM (Pulse Code Modulation)**
+> **Projeto sobre representação de formas de ondas com PCM (Pulse Code Modulation)**
+
+> Link: [Formas de ondas PCM](http://idealize.sebraepb.com.br/pcm)
