@@ -2,7 +2,7 @@
 <html lang="pt-br">
     <head>
         <meta charset="utf-8">
-        <title>Complete Example</title>
+        <title>Comunicações Digitais - PCM</title>
         <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
         <link rel="stylesheet" href="./bootstrap/bootstrap.css">
         <script src="./jquery/jquery.min.js"></script>
@@ -46,8 +46,18 @@
                         });
                 }else if($("#pcm").val() == "nrzl"){
                     $("#chart-container").load("./chartbits.php?seqbits=" + seqbits);
-                }else{
+                }else if($("#pcm").val() == "nrzm"){
+                    $("#chart-container").load("./chartbits4.php?seqbits=" + seqbits);
+                }else if($("#pcm").val() == "biphasel"){
                     $("#chart-container").load("./chartbits2.php?seqbits=" + seqbits);
+                }else if($("#pcm").val() == "unipolarrz"){
+                    $("#chart-container").load("./chartbits3.php?seqbits=" + seqbits);
+                }else if($("#pcm").val() == "nrzs"){
+                    $("#chart-container").load("./chartbits5.php?seqbits=" + seqbits);
+                }else if($("#pcm").val() == "biphasem"){
+                    $("#chart-container").load("./chartbits6.php?seqbits=" + seqbits);
+                }else{
+                    $("#chart-container").load("./chartbits7.php?seqbits=" + seqbits);
                 }
             }
             function showcreditos(){
@@ -93,7 +103,12 @@
                         <select class="form-control form-control-lg" id="pcm">
                             <option value="0">Selecione a codificação</option>
                             <option value="nrzl">NRZ-L</option>
+                            <option value="nrzm">NRZ-M</option>
+                            <option value="nrzs">NRZ-S</option>
                             <option value="biphasel">BI-&Phi;-L</option>
+                            <option value="biphasem">BI-&Phi;-M</option>
+                            <option value="biphases">BI-&Phi;-S</option>
+                            <option value="unipolarrz">UNIPOLAR RZ</option>
                         </select>
                     </td>
                     <td width="40%">
